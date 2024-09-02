@@ -1,0 +1,27 @@
+<body>
+    <div class="dialog-add-user">
+        <h1 mat-dialog-title>Add user</h1>
+        <mat-dialog-content>
+            <div class="add-user-name">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="">
+                        <!-- <mat-hint>Please enter a name</mat-hint> -->
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="">
+                        <!-- <mat-hint>Please enter a name</mat-hint> -->
+                    </mat-form-field>
+                </p>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button>Cancel</button>
+            <button mat-button cdkFocusInitial>Save</button>
+        </mat-dialog-actions>
+    </div>
+</body>

@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-drawer-container {
+    height: 100vh;
+}
+
+.topnav .mat-toolbar {
+    min-height: 56px;
+    height: 56px;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+}
+
+.sidenav {
+    width: 300px;
+
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+
+    >li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 12px 14px 12px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($color: #680df1, $alpha: 0.2);
+            border-radius: 20px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.logo-container {
+    padding: 0 20px 0 20px;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.router-container {
+    padding: 16px 40px 16px 40px;
+}
