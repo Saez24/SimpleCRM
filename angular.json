@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SimpleCRM": {
+    "simplecrm": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SimpleCRM:build:production"
+              "buildTarget": "simplecrm:build:production"
             },
             "development": {
-              "buildTarget": "SimpleCRM:build:development"
+              "buildTarget": "simplecrm:build:development"
             }
           },
           "defaultConfiguration": "development"
