@@ -1,0 +1,62 @@
+<div class="dialog-edit-user">
+    <h3 mat-dialog-title>Edit user</h3>
+    <mat-dialog-content>
+        <div class="input-fields-display">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" [(ngModel)]="user.firstName" matInput placeholder="">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" [(ngModel)]="user.lastName" matInput placeholder="">
+                </mat-form-field>
+            </p>
+        </div>
+        <div>
+            <p>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>E-Mail</mat-label>
+                    <input type="email" [(ngModel)]="user.email" matInput placeholder="">
+                </mat-form-field>
+            </p>
+        </div>
+        <div class="birthdate-picker mb-10">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Birth Date</mat-label>
+                <input type="date" [(ngModel)]="formattedBirthDate" matInput placeholder="">
+
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <p>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Street + No.</mat-label>
+                    <input type="text" [(ngModel)]="user.street" matInput placeholder="">
+                </mat-form-field>
+            </p>
+        </div>
+        <div class="input-fields-display">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Zip Code</mat-label>
+                    <input type="number" [(ngModel)]="user.zipCode" matInput placeholder="">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input type="text" [(ngModel)]="user.city" matInput placeholder="">
+                </mat-form-field>
+            </p>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-button cdkFocusInitial>Save changes</button>
+    </mat-dialog-actions>
+</div>

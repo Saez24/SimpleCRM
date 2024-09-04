@@ -1,0 +1,40 @@
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.user-detail-header {
+    min-height: 120px;
+    background: linear-gradient(90deg, rgba(0, 212, 255, 1) 0%, rgba(0, 30, 36, 0.5872724089635855) 100%, rgba(0, 221, 221, 0.9430147058823529) 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.user-detail-header-content {
+    display: flex;
+    gap: 36px;
+
+    >img {
+        height: 84px;
+        border-radius: 50%;
+    }
+}
+
+.edit-contact {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+}
+
+.user-info {
+    margin-top: 20px;
+}
