@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
-  imports: [FormsModule, NgIf, MatFormFieldModule, MatInputModule, MatDialogActions, MatDialogContent, MatIconModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, FormsModule, MatProgressBarModule],
+  imports: [FormsModule, NgIf, MatFormFieldModule, MatInputModule, MatDialogActions, MatDialogContent, MatIconModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatProgressBarModule],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss'],
   providers: [provideNativeDateAdapter()],
@@ -24,30 +24,35 @@ import { NgIf } from '@angular/common';
 })
 export class DialogAddUserComponent {
   user: User = new User();
-  birthDate!: Date;
+  birthDate: Date = new Date();
   loading = false;
   firestore: Firestore = inject(Firestore);
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
 
+  // Save user to Firestore
   async saveUser() {
     try {
+      // Convert birthDate to timestamp before saving
+      if (this.birthDate) {
         this.user.birthDate = this.birthDate.getTime();
-        console.log('Current user is', this.user);
+      }
 
-        const usersCollection = collection(this.firestore, 'users');
+      console.log('Current user is', this.user);
+
+      const usersCollection = collection(this.firestore, 'users');
       const result = await addDoc(usersCollection, this.user.toJSON());
-      
+
       console.log('User added successfully', result);
       this.dialogRef.close();
     } catch (error) {
-        console.error('Error adding user:', error);
+      console.error('Error adding user:', error);
     }
   }
   
   closeDialog() {
     this.dialogRef.close();
   }
-
 }
+
 

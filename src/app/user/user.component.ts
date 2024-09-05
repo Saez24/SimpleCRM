@@ -4,26 +4,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule, TooltipPosition } from '@angular/material/tooltip';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../models/user.class';
 import { MatCardModule } from '@angular/material/card';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { NgFor, CommonModule } from '@angular/common'; // Import von CommonModule
+import { Firestore, collection, onSnapshot } from '@angular/fire/firestore';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatTooltipModule, MatDialogModule, MatCardModule, NgFor, CommonModule, RouterLink],
+  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule, RouterLink],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
   user: User = new User();
-  allUsers$!: Observable<any[]>;
+  allUsers: any[] = [];
   positionOptions: TooltipPosition[] = ['above'];
   position = new FormControl(this.positionOptions[0]);
 
@@ -33,10 +31,14 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     const usersCollection = collection(this.firestore, 'users');
-    this.allUsers$ = collectionData(usersCollection, { idField: 'id' });
 
-    this.allUsers$.subscribe((changes: any) => {
-      console.log('Received changes from DB', changes);
+
+    onSnapshot(usersCollection, (snapshot) => {
+      this.allUsers = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return { id: doc.id, ...data };
+      });
+      console.log('Received changes from DB', this.allUsers);
     });
   }
 

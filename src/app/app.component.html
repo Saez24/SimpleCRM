@@ -1,29 +1,24 @@
-<mat-drawer-container class="mat-drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
-    <div class="logo-container">Logo</div>
-    <!-- @if (showFiller) {
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button> -->
+<body>
+  <mat-drawer-container class="mat-drawer-container max-witdh" autosize>
+    <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
+      <div class="logo-container">Simple CRM</div>
+      <ul class="menu-items">
+        <li routerLink="/"><mat-icon>assessment</mat-icon>Dashboard</li>
+        <li routerLink="user"><mat-icon>perm_identity</mat-icon>User</li>
+      </ul>
+    </mat-drawer>
 
-    <ul class="menu-items">
-      <li routerLink="/"><mat-icon>assessment</mat-icon>Dashboard</li>
-      <li routerLink="user"><mat-icon>perm_identity</mat-icon>User</li>
-    </ul>
-  </mat-drawer>
-
-  <div class="topnav">
-    <mat-toolbar>
-      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
-        aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Simple CRM</span>
-    </mat-toolbar>
-    <div class="router-container">
-      <router-outlet></router-outlet>
+    <div class="topnav">
+      <mat-toolbar>
+        <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+          aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Simple CRM</span>
+      </mat-toolbar>
+      <div class="router-container">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-  </div>
-</mat-drawer-container>
+  </mat-drawer-container>
+</body>

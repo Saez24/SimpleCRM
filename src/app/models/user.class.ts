@@ -1,4 +1,8 @@
 export class User {
+    onSnapshot(arg0: (user: any) => void) {
+      throw new Error('Method not implemented.');
+    }
+    id?: string;
     firstName: string;
     lastName: string;
     birthDate: number;

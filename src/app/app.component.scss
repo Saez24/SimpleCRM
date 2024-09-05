@@ -1,0 +1,12 @@
+body {
+    background: black;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.max-witdh {
+    width: 100%;
+    max-width: 1920px;
+    height: 100vh;
+}
