@@ -18,6 +18,7 @@ import { RouterLink } from '@angular/router';
   imports: [MatButtonModule, MatIconModule, MatDividerModule, MatTooltipModule, MatDialogModule, MatCardModule, CommonModule, RouterLink],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
+  providers: [],
 })
 export class UserComponent implements OnInit {
   user: User = new User();
