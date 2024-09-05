@@ -3,10 +3,18 @@
     <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
       <div class="logo-container">Simple CRM</div>
       <ul class="menu-items">
-        <li routerLink="/"><mat-icon>assessment</mat-icon>Dashboard</li>
-        <li routerLink="user"><mat-icon>perm_identity</mat-icon>User</li>
+        <li routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <mat-icon>assessment</mat-icon>Dashboard
+        </li>
+        <li routerLink="/user" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <mat-icon>perm_identity</mat-icon>User
+        </li>
+        <li routerLink="/sales" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+          <mat-icon>payments</mat-icon>Sales
+        </li>
       </ul>
     </mat-drawer>
+
 
     <div class="topnav">
       <mat-toolbar>

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogActions, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,11 +12,18 @@ import { User } from '../models/user.class';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgIf } from '@angular/common';
+import { merge } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+
 
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
-  imports: [FormsModule, NgIf, MatFormFieldModule, MatInputModule, MatDialogActions, MatDialogContent, MatIconModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatProgressBarModule],
+  imports: [FormsModule, NgIf, MatFormFieldModule, MatInputModule,
+    MatDialogActions, MatDialogContent, MatIconModule,
+    MatButtonModule, MatDatepickerModule, MatNativeDateModule,
+    MatProgressBarModule, ReactiveFormsModule, ],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss'],
   providers: [provideNativeDateAdapter()],
@@ -28,12 +35,28 @@ export class DialogAddUserComponent {
   loading = false;
   firestore: Firestore = inject(Firestore);
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
+  readonly email = new FormControl('', [Validators.required, Validators.email]);
 
-  // Save user to Firestore
+  errorMessage = signal('');
+
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
+    merge(this.email.statusChanges, this.email.valueChanges)
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => this.updateErrorMessage());
+  }
+
+  updateErrorMessage() {
+    if (this.email.hasError('required')) {
+      this.errorMessage.set('You must enter a value');
+    } else if (this.email.hasError('email')) {
+      this.errorMessage.set('Not a valid email');
+    } else {
+      this.errorMessage.set('');
+    }
+  }
+
   async saveUser() {
     try {
-      // Convert birthDate to timestamp before saving
       if (this.birthDate) {
         this.user.birthDate = this.birthDate.getTime();
       }

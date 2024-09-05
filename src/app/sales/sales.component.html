@@ -1,0 +1,53 @@
+<button (click)="openDialog()" class="add-invoice-btn" mat-fab color="primary" matTooltip="Create new document"
+    [matTooltipPosition]="position.value!">
+    <mat-icon>add</mat-icon>
+</button>
+
+<mat-tab-group dynamicHeight>
+    <mat-tab label="Offers">
+        <div class="example-large-box mat-elevation-z4">
+            <mat-card appearance="outlined">
+                <mat-card-content>
+                    <table class="document-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Document</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr *ngFor="let document of allOffers" [routerLink]="['/offer', document.id]">
+                            <td>{{ getUserById(document.userId)?.firstName }} {{ getUserById(document.userId)?.lastName
+                                }}</td>
+                            <td>{{ document.documentNo }}</td>
+                            <td>{{ document.documentDate | date: 'dd.MM.yyyy' }}</td>
+                            <td>{{ document.amount | number:'1.2-2':'de-DE' }}</td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Invoices">
+        <div class="example-large-box mat-elevation-z4">
+            <mat-card appearance="outlined">
+                <mat-card-content>
+                    <table class="document-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Document</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr *ngFor="let document of allInvoices" [routerLink]="['/offer', document.id]">
+                            <td>{{ getUserById(document.userId)?.firstName }} {{ getUserById(document.userId)?.lastName
+                                }}</td>
+                            <td>{{ document.documentNo }}</td>
+                            <td>{{ document.documentDate | date: 'dd.MM.yyyy' }}</td>
+                            <td>{{ document.amount | number:'1.2-2':'de-DE'}}</td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

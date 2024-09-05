@@ -1,0 +1,46 @@
+.add-invoice-btn {
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
+}
+
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.3);
+        cursor: pointer;
+
+        &:first-child {
+            border-bottom: 2px solid rgba($color: #ffffff, $alpha: 0.3);
+            cursor: unset;
+
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        th {
+            text-align: start;
+            padding-left: 10px;
+        }
+
+        td {
+            height: 48px;
+            padding-left: 10px;
+        }
+
+        &:hover {
+            background-color: rgba($color: #680df1, $alpha: 0.2);
+            border-radius: 20px;
+        }
+    }
+
+
+
+}

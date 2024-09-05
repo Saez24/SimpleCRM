@@ -45,6 +45,11 @@ body {
         &:focus {
             outline: none;
         }
+
+        &.active-link {
+            background-color: rgba($color: #680df1, $alpha: 0.5);
+            border-radius: 20px;
+        }
     }
 }
 

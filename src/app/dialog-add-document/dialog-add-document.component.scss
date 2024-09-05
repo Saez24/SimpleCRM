@@ -1,0 +1,24 @@
+.dialog-add-document {
+    min-width: 460px;
+    background-color: rgba(255, 255, 255, 0.932);
+
+    >h3 {
+        padding: 20px;
+        color: black;
+        text-align: center;
+    }
+}
+
+.dialog-add-document-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mdc-text-field__input {
+    color: black !important;
+}
+
+.document-selection {
+    background-color: white;
+}
