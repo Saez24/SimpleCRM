@@ -39,7 +39,6 @@ export class UserComponent implements OnInit {
         const data = doc.data();
         return { id: doc.id, ...data };
       });
-      console.log('Received changes from DB', this.allUsers);
     });
   }
 

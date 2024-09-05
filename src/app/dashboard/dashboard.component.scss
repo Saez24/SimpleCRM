@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.dashboard-summary-content {
+    display: flex;
+    gap: 36px;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 1280px;
+    padding: 28px;
+
+}
+
+.dashboard-summary-cards {
+    width: 350px;
+
+    >h4 {
+        padding: 20px;
+        text-align: center;
+    }
+}

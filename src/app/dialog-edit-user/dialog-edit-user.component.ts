@@ -46,21 +46,16 @@ export class DialogEditUserComponent {
   async saveUser() {
   try {
     this.user.birthDate = this.birthDate.getTime();
-    console.log('Current user is', this.user, this.userId);
     const { id, ...userData } = this.user;
-
     const userDocRef = doc(this.firestore, `users/${this.userId}`);
     
     await updateDoc(userDocRef, { ...userData });
     
-    console.log('User updated successfully');
     this.dialogRef.close();
   } catch (error) {
     console.error('Error updating user:', error);
   }
 }
-
-
   
   closeDialog() {
     this.dialogRef.close();

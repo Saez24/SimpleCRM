@@ -1,1 +1,27 @@
-<p>dashboard works!</p>
+<body>
+    <div class="dashboard-summary-content">
+        <mat-card appearance="outlined" class="dashboard-summary-cards">
+            <mat-card-content>Users</mat-card-content>
+            <h4> {{ allUsers.length }}</h4>
+        </mat-card>
+        <mat-card appearance="outlined" class="dashboard-summary-cards">
+            <mat-card-content>Invoces</mat-card-content>
+            <h4> {{ allInvoices.length }}</h4>
+        </mat-card>
+        <mat-card appearance="outlined" class="dashboard-summary-cards">
+            <mat-card-content>Offers</mat-card-content>
+            <h4> {{ allOffers.length }}</h4>
+        </mat-card>
+    </div>
+
+    <div class="dashboard-summary-content">
+        <mat-card appearance="outlined" class="dashboard-summary-cards">
+            <mat-card-content>Invoces Summary</mat-card-content>
+            <h4>{{ totalAmountInvoices | number: '1.2-2':'de-DE'}} €</h4>
+        </mat-card>
+        <mat-card appearance="outlined" class="dashboard-summary-cards">
+            <mat-card-content>Offers Summary</mat-card-content>
+            <h4> {{ totalAmountOffers | number: '1.2-2':'de-DE'}} €</h4>
+        </mat-card>
+    </div>
+</body>

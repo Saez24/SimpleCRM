@@ -54,7 +54,7 @@ export class DialogAddDocumentComponent {
 
 async createDocument() {
   try {
-        if (this.documentControl.invalid || this.userControl.invalid || this.amountControl.invalid || this.descriptionControl.invalid) {
+    if (this.documentControl.invalid || this.userControl.invalid || this.amountControl.invalid || this.descriptionControl.invalid) {
             return;
         }
 
@@ -71,12 +71,9 @@ async createDocument() {
             description: description,
         });
 
-        console.log('Current document is', newDocument);
 
         const documentCollection = collection(this.firestore, selectedCollection);
         const result = await addDoc(documentCollection, newDocument.toJSON());
-
-        console.log('Document added successfully to', selectedCollection, result);
         this.dialogRef.close();
     } catch (error) {
         console.error('Error adding document:', error);

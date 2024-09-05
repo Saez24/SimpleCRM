@@ -61,12 +61,9 @@ export class DialogAddUserComponent {
         this.user.birthDate = this.birthDate.getTime();
       }
 
-      console.log('Current user is', this.user);
-
       const usersCollection = collection(this.firestore, 'users');
       const result = await addDoc(usersCollection, this.user.toJSON());
 
-      console.log('User added successfully', result);
       this.dialogRef.close();
     } catch (error) {
       console.error('Error adding user:', error);

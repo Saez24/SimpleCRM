@@ -24,7 +24,7 @@
                 <p>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Email</mat-label>
-                        <input [(ngModel)]="user.email" matInput placeholder="example@example.com" [formControl]="email"
+                        <input [(ngModel)]="user.email" matInput placeholder="example@example.com"
                             (blur)="updateErrorMessage()" required />
                         @if (email.invalid) {
                         <mat-error>{{errorMessage()}}</mat-error>

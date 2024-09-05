@@ -12,7 +12,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DialogAddDocumentComponent } from '../dialog-add-document/dialog-add-document.component';
 import { collection, Firestore, onSnapshot } from '@angular/fire/firestore';
 import { Document } from '../models/document.class';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID} from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
@@ -48,10 +48,8 @@ export class SalesComponent {
   onSnapshot(offersCollection, (snapshot) => {
     this.allOffers = snapshot.docs.map(doc => {
       const data = doc.data();
-      console.log('Offer Data:', data); 
       return { id: doc.id, ...data };
     });
-    console.log('Received offers from DB', this.allOffers);
   });
 
   onSnapshot(invoicesCollection, (snapshot) => {
@@ -59,7 +57,6 @@ export class SalesComponent {
       const data = doc.data();
       return { id: doc.id, ...data };
     });
-    console.log('Received invoices from DB', this.allInvoices);
   });
     
   onSnapshot(usersCollection, (snapshot) => {
@@ -67,15 +64,12 @@ export class SalesComponent {
       const data = doc.data();
       return { id: doc.id, ...data };
     });
-    console.log('Received users from DB', this.users);
-    });
-    
+    });  
   }
+  
    getUserById(userId: string) {
     return this.users.find(user => user.id === userId);
   }
-
-  
 
   openDialog() {
     this.dialog.open(DialogAddDocumentComponent);

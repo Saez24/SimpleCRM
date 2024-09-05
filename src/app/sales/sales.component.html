@@ -15,7 +15,7 @@
                             <th>Date</th>
                             <th>Amount</th>
                         </tr>
-                        <tr *ngFor="let document of allOffers" [routerLink]="['/offer', document.id]">
+                        <tr *ngFor="let document of allOffers">
                             <td>{{ getUserById(document.userId)?.firstName }} {{ getUserById(document.userId)?.lastName
                                 }}</td>
                             <td>{{ document.documentNo }}</td>
@@ -38,7 +38,7 @@
                             <th>Date</th>
                             <th>Amount</th>
                         </tr>
-                        <tr *ngFor="let document of allInvoices" [routerLink]="['/offer', document.id]">
+                        <tr *ngFor="let document of allInvoices">
                             <td>{{ getUserById(document.userId)?.firstName }} {{ getUserById(document.userId)?.lastName
                                 }}</td>
                             <td>{{ document.documentNo }}</td>

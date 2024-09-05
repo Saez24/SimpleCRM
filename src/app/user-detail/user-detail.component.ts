@@ -39,11 +39,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       this.unsubscribe = onSnapshot(userDoc, (doc) => {
         if (doc.exists()) {
           this.user = doc.data() as User;
-          console.log('User data:', this.user);
-          this.cd.markForCheck(); // Informiere Angular, dass es die Ansicht überprüfen soll
-        } else {
-          console.log('No such document!');
-        }
+          this.cd.markForCheck();
+        } 
       }, (error) => {
         console.error('Error fetching document:', error);
       });
