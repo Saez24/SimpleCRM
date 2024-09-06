@@ -31,7 +31,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class DialogAddUserComponent {
   user: User = new User();
-  birthDate: Date = new Date();
+  birthDate: Date | null = null;
   loading = false;
   firestore: Firestore = inject(Firestore);
 
@@ -44,6 +44,10 @@ export class DialogAddUserComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
   }
+
+  ngOnInit() {
+  this.birthDate = null;
+}
 
   updateErrorMessage() {
     if (this.email.hasError('required')) {
