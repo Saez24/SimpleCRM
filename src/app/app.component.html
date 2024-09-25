@@ -1,32 +1,4 @@
-<body>
-  <mat-drawer-container class="mat-drawer-container max-witdh" autosize>
-    <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
-      <div class="logo-container">Simple CRM</div>
-      <ul class="menu-items">
-        <li routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
-          <mat-icon>assessment</mat-icon>Dashboard
-        </li>
-        <li routerLink="/user" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
-          <mat-icon>perm_identity</mat-icon>User
-        </li>
-        <li routerLink="/sales" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
-          <mat-icon>payments</mat-icon>Sales
-        </li>
-      </ul>
-    </mat-drawer>
-
-
-    <div class="topnav">
-      <mat-toolbar>
-        <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
-          aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Simple CRM</span>
-      </mat-toolbar>
-      <div class="router-container">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </mat-drawer-container>
-</body>
+<div class="content-container max-width">
+  <app-sidenav></app-sidenav>
+  <app-topnav></app-topnav>
+</div>

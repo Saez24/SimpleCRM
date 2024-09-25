@@ -1,0 +1,45 @@
+.sidenav {
+    width: 200px;
+    color: white;
+    height: 100%;
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+
+    >li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 12px 14px 12px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($color: #680df1, $alpha: 0.2);
+            border-radius: 20px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.active-link {
+            background-color: rgba($color: #680df1, $alpha: 0.5);
+            border-radius: 20px;
+        }
+    }
+}
+
+.logo-container {
+    padding: 0 20px 0 20px;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.router-container {
+    padding: 16px 40px 16px 40px;
+}

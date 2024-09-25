@@ -1,12 +1,9 @@
-body {
-    background: black;
-    margin: 0 auto;
+.content-container {
+
+    margin: 0;
     display: flex;
-    justify-content: center;
 }
 
-.max-witdh {
-    width: 100%;
-    max-width: 1920px;
-    height: 100vh;
+.router-container {
+    padding: 0 20px 0 20px;
 }

@@ -1,0 +1,25 @@
+.topnav .mat-toolbar {
+    min-height: 56px;
+    height: 56px;
+    border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toolbar-title {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
